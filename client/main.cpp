@@ -28,11 +28,25 @@ int main() {
         }
         std::string message;
         std::string receiverId;
-        std::cout << "Enter receiverId: ";
-        std::cin >> receiverId;
-        std::cout << "Enter message: ";
-        getline(std::cin >> std::ws, message);
-        messageController.sendMessage(user.getUsername(), user.getSocketFd(), receiverId, message);
+
+        int choiceType;
+        std::cout << "1. Send to user\n2. Send to group\n";
+        std::cin >> choiceType;
+
+        if(choiceType == 1){
+            std::cout << "Enter receiverId: ";
+            std::cin >> receiverId;
+            std::cout << "Enter message: ";
+            getline(std::cin >> std::ws, message);
+            messageController.sendMessage(user.getUsername(), user.getSocketFd(), receiverId, message, TOCLIENT);
+        } else {
+            std::cout << "Enter groupId: ";
+            std::cin >> receiverId;
+            std::cout << "Enter message: ";
+            getline(std::cin >> std::ws, message);
+            //messageController.sendMessageToGroup(user.getUsername(), user.getSocketFd(), receiverId, message);
+        }
+
     }
     return 0;
 }

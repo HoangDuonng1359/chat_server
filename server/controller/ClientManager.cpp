@@ -2,8 +2,6 @@
 #include "../model/Client.h"
 #include <string>
 
-ClientManager::ClientManager() {
-}
 
 ClientManager& ClientManager::getInstance() {
     static ClientManager instance;

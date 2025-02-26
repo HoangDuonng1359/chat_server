@@ -7,6 +7,12 @@ Client::Client(int socket_fd, std::string username) {
     this->username = username;
 }
 
+
+Client::Client() {
+    this->socket_fd = -1;
+    this->username = "";
+}
+
 std::string Client::getUsername() {
     return this->username;
 }

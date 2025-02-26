@@ -16,12 +16,12 @@
 MessageController::MessageController() {
 }
 
-void MessageController::sendMessage(std::string sender_id, int socketFd, std::string receiver_id, std::string content) {
+void MessageController::sendMessage(std::string sender_id, int socketFd, std::string receiver_id, std::string content, std::string type) {
     Messenger messenger;
     messenger.setSenderId(sender_id);
     messenger.setReceiverId(receiver_id);
     messenger.setContent(content);
-
+    messenger.setType(type);
     std::time_t now = time(0);
     std::tm* localTime = std::localtime(&now); 
 

@@ -10,7 +10,7 @@
 class MessageController {
     public:
         MessageController();
-        void sendMessage(std::string sender_id, int socketFd, std::string receiver_id , std::string content);
+        void sendMessage(std::string sender_id, int socketFd, std::string receiver_id , std::string content , std::string type);
         void receiveMessage(int socketFd);
         void startReceivingMessage(int socketFd);
 };
