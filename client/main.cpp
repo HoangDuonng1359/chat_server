@@ -89,14 +89,14 @@ int main() {
         case 5:
             std::cout << "Enter group name: ";
             std::cin >> receiverId;
-            std::cout << "Enter memberId: ";
+            std::cout << "Enter member name: ";
             std::cin >> memberId;
             messageController.sendMessage(user.getSocketFd(), Messenger::createMsgAddMember(receiverId,memberId));
             break;
         case 6:
             std::cout << "Enter group name: ";
             std::cin >> receiverId;
-            std::cout << "Enter memberId: ";
+            std::cout << "Enter member name: ";
             std::cin >> memberId;
             messageController.sendMessage(user.getSocketFd(), Messenger::createMsgRemoveMember(receiverId,memberId));
             break;
@@ -105,11 +105,11 @@ int main() {
             std::cin >> receiverId;
             messageController.sendMessage(user.getSocketFd(), Messenger::createMsgLeaveGroup(receiverId, user.getUsername()));
             break;
-        // case 8:
-        //     messageController.sendMessage(user.getUsername(), user.getSocketFd(), receiverId, message, LISTGROUP);
-        //     break;
+        case 8:
+            messageController.sendMessage(user.getSocketFd(), Messenger::createMsgListGroup(user.getUsername()));
+            break;
         // case 9:
-        //     std::cout << "Enter groupId: ";
+        //     std::cout << "Enter group name: ";
         //     std::cin >> receiverId;
         //     messageController.sendMessage(user.getUsername(), user.getSocketFd(), receiverId, message, LISTMEMBER);
         //     break;

@@ -40,8 +40,8 @@ int MessageService::sendMessage(std::string msg)
         return 1;
         // } else if (type == LEAVEGROUP) {
         //     return leaveGroup(msg);
-        // } else if (type == LISTGROUP) {
-        //     return listGroup(msg);
+        } else if (type == LISTGROUP) {
+            return groupManager.listGroup(msg);
         // } else if (type == LISTMEMBER) {
         //     return listMember(msg);
         // } else if (type == LISTGROUPMEMBER) {

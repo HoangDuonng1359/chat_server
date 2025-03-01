@@ -93,17 +93,18 @@ void GroupManager::leaveGroup(std::string msg)
     groupMap[groupID].removeMember(memberID);
 }
 
-// int GroupManager::listGroup(std::string msg)
-// {
-//     std::string memberID = MessageService::getValueByKey(msg, "Member ID");
-//     std::string response = "List Group\n";
-//     for (auto& group : groupMap) {
-//         if (group.second.isMember(memberID)) {
-//             response += "Group ID: " + std::to_string(group.second.getId()) + " Group Name: " + group.second.getName() + "\n";
-//         }
-//     }
-//     return MessageService::sendToClient(response);
-// }
+int GroupManager::listGroup(std::string msg)
+{
+    std::string memberName = MessageService::getValueByKey(msg, "Member Name: ");
+    std::string response = "Sender: Server\nReceiver: "+ memberName + "\n" + "List Group\n";
+    for (auto& group : groupMap) {
+        if (group.second.isMember(memberName)) {
+            response += "Group ID: " + std::to_string(group.second.getId()) + " Group Name: " + group.second.getName() + "\n";
+        }
+    }
+    MessageService messageService;
+    return messageService.sendToClient(response);
+}
 
 // int GroupManager::listMember(std::string msg)
 // {

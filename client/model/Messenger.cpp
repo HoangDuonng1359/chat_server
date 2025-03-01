@@ -110,5 +110,5 @@ std::string Messenger::createMsgListMember(std::string group_name) {
 }
 
 std::string Messenger::createMsgListGroup(std::string member_id) {
-    return std::string("Type: ") + LISTGROUP + "\nGroup Name:: " + member_id + "\n";
+    return std::string("Type: ") + LISTGROUP + "\nMember Name: " + member_id + "\n";
 }

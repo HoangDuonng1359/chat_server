@@ -43,9 +43,10 @@ make
   ```
 
 ### 3. Error: `Bind failed` when running the server
+- You can change the port in the two main files and try again
 - The port may already be in use. Check and terminate the existing process:
   ```sh
-  sudo netstat -tulnp | grep :<PORT>
+  sudo lsof -i :<PORT>
   sudo kill -9 <PID>
   ```
   (Replace `<PORT>` with the port number and `<PID>` with the process ID.)
