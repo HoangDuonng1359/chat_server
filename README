@@ -1,0 +1,66 @@
+# Chat Server - Hướng Dẫn Cài Đặt & Chạy
+
+## Giới thiệu
+Đây là hệ thống chat server-client được xây dựng bằng C++ sử dụng giao thức TCP. Hệ thống hỗ trợ nhiều client kết nối và trò chuyện với nhau thông qua server.
+
+## Yêu cầu hệ thống
+- **Ubuntu 22.04** hoặc tương tự
+- **g++ (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0**
+- **Make** để biên dịch mã nguồn
+
+## Hướng dẫn cài đặt & chạy chương trình
+
+### 1. Khởi động Server
+Mở terminal mới và thực hiện các bước sau:
+```sh
+cd server
+make
+./main
+```
+
+### 2. Khởi động Client
+Mở terminal mới và thực hiện các bước sau:
+```sh
+cd client
+make
+./main
+```
+
+## Xử lý lỗi thường gặp
+
+### 1. Lỗi `make: command not found`
+- Cài đặt Make bằng lệnh sau:
+  ```sh
+  sudo apt update
+  sudo apt install build-essential
+  ```
+
+### 2. Lỗi `g++: command not found`
+- Cài đặt g++ bằng lệnh:
+  ```sh
+  sudo apt update
+  sudo apt install g++
+  ```
+
+### 3. Lỗi `Bind failed` khi chạy server
+- Cổng có thể đã bị chiếm dụng, kiểm tra và đóng tiến trình cũ:
+  ```sh
+  sudo netstat -tulnp | grep :<PORT>
+  sudo kill -9 <PID>
+  ```
+  (Thay `<PORT>` bằng số cổng và `<PID>` bằng ID tiến trình đang chiếm dụng.)
+
+### 4. Lỗi `Connection refused` khi chạy client
+- Đảm bảo server đang chạy trước khi khởi động client.
+- Kiểm tra firewall:
+  ```sh
+  sudo ufw allow <PORT>
+  ```
+
+## Thông tin bổ sung
+- Mỗi client sẽ có một ID riêng khi kết nối với server.
+- Hệ thống được thiết kế để dễ dàng nâng cấp trong tương lai.
+
+---
+Bất kỳ lỗi nào khác, vui lòng kiểm tra log lỗi và thử lại hoặc liên hệ với nhóm phát triển.
+
