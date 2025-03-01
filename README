@@ -1,66 +1,63 @@
-# Chat Server - Hướng Dẫn Cài Đặt & Chạy
+# Chat Server - Installation & Usage Guide
 
-## Giới thiệu
-Đây là hệ thống chat server-client được xây dựng bằng C++ sử dụng giao thức TCP. Hệ thống hỗ trợ nhiều client kết nối và trò chuyện với nhau thông qua server.
+## Introduction
+This is a chat server-client system built with C++ using the TCP protocol. The system supports multiple clients connecting and chatting through the server.
 
-## Yêu cầu hệ thống
-- **Ubuntu 22.04** hoặc tương tự
+## System Requirements
+- **Ubuntu 22.04** or similar
 - **g++ (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0**
-- **Make** để biên dịch mã nguồn
+- **Make** to compile the source code
 
-## Hướng dẫn cài đặt & chạy chương trình
+## Installation & Running Guide
 
-### 1. Khởi động Server
-Mở terminal mới và thực hiện các bước sau:
+### 1. Starting the Server
+Open a new terminal and execute the following commands:
 ```sh
 cd server
 make
 ./main
 ```
 
-### 2. Khởi động Client
-Mở terminal mới và thực hiện các bước sau:
+### 2. Starting the Client
+Open a new terminal and execute the following commands:
 ```sh
 cd client
 make
 ./main
 ```
 
-## Xử lý lỗi thường gặp
+## Common Issues & Solutions
 
-### 1. Lỗi `make: command not found`
-- Cài đặt Make bằng lệnh sau:
+### 1. Error: `make: command not found`
+- Install Make using the following command:
   ```sh
   sudo apt update
   sudo apt install build-essential
   ```
 
-### 2. Lỗi `g++: command not found`
-- Cài đặt g++ bằng lệnh:
+### 2. Error: `g++: command not found`
+- Install g++ using the following command:
   ```sh
   sudo apt update
   sudo apt install g++
   ```
 
-### 3. Lỗi `Bind failed` khi chạy server
-- Cổng có thể đã bị chiếm dụng, kiểm tra và đóng tiến trình cũ:
+### 3. Error: `Bind failed` when running the server
+- The port may already be in use. Check and terminate the existing process:
   ```sh
   sudo netstat -tulnp | grep :<PORT>
   sudo kill -9 <PID>
   ```
-  (Thay `<PORT>` bằng số cổng và `<PID>` bằng ID tiến trình đang chiếm dụng.)
+  (Replace `<PORT>` with the port number and `<PID>` with the process ID.)
 
-### 4. Lỗi `Connection refused` khi chạy client
-- Đảm bảo server đang chạy trước khi khởi động client.
-- Kiểm tra firewall:
+### 4. Error: `Connection refused` when running the client
+- Ensure that the server is running before starting the client.
+- Check the firewall settings:
   ```sh
   sudo ufw allow <PORT>
   ```
 
-## Thông tin bổ sung
-- Mỗi client sẽ có một ID riêng khi kết nối với server.
-- Hệ thống được thiết kế để dễ dàng nâng cấp trong tương lai.
-
----
-Bất kỳ lỗi nào khác, vui lòng kiểm tra log lỗi và thử lại hoặc liên hệ với nhóm phát triển.
+## Additional Information
+- Each client will have a unique ID when connecting to the server.
+- The system is designed for easy future upgrades.
 
