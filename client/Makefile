@@ -1,6 +1,6 @@
 CXX = g++
 # "-I" để chỉ đường dẫn đến thư viện 
-CXXFLAGS = -Wall -std=c++11 -I/model -I/controller -I/view
+CXXFLAGS = -Wall -std=c++11 -I/model -I/controller
 
 # Danh sách file nguồn
 SRC = main.cpp model/User.cpp model/Connection.cpp controller/ConnectionController.cpp  controller/MessageController.cpp model/Messenger.cpp
