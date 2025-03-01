@@ -5,6 +5,13 @@ GroupChat::GroupChat(int id, std::shared_ptr<Client> admin, std::string name) {
     this->id = id;
     this->admin = admin;
     this->name = name;
+    this->addMember(*admin);
+}
+
+GroupChat::GroupChat() {
+    this->id = -1;
+    this->admin = nullptr;
+    this->name = "";
 }
 
 void GroupChat::setId(int id) {
@@ -60,7 +67,8 @@ void GroupChat::setMembers(const std::vector<Client>& members) {
 }
 
 void GroupChat::removeMember(std::string member_id) {
-    for (int i = 0; i < this->members.size(); i++) {
+    int n = this->members.size();
+    for (int i = 0; i < n ; i++) {
         if (this->members[i].getUsername() == member_id) {
             this->members.erase(this->members.begin() + i);
             return;
@@ -69,7 +77,8 @@ void GroupChat::removeMember(std::string member_id) {
 }
 
 bool GroupChat::isMember(std::string member_id) {
-    for (int i = 0; i < this->members.size(); i++) {
+    int n = this->members.size();
+    for (int i = 0; i < n; i++) {
         if (this->members[i].getUsername() == member_id) {
             return true;
         }

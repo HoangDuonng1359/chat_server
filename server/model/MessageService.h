@@ -3,6 +3,18 @@
 
 #define TOCLIENT "toClient"
 #define TOGROUP "toGroup"
+#define CREATEGROUP "createGroup"
+#define DELETEGROUP "deleteGroup"
+#define ADDMEMBER "addMember"
+#define REMOVEMEMBER "removeMember"
+#define LEAVEGROUP "leaveGroup"
+#define LISTGROUP "listGroup"
+#define LISTMEMBER "listMember"
+#define LISTGROUPMEMBER "listGroupMember"
+#define LISTALLGROUP "listAllGroup"
+#define LISTALLMEMBER "listAllMember"
+#define LISTALLGROUPMEMBER "listAllGroupMember"
+
 
 #include "IService.h"
 #include <string>
@@ -23,7 +35,7 @@ public:
     std::string getSenderIdByMessage(std::string message);
     std::string getIdByMessage(std::string message);
     std::string getTypeByMessage(std::string message);
-    std::string getValueByKey(const std::string& message, const std::string& key);
+    static std::string getValueByKey(const std::string& message, const std::string& key);
     
 };
 

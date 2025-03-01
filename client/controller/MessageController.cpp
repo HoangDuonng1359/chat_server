@@ -16,20 +16,9 @@
 MessageController::MessageController() {
 }
 
-void MessageController::sendMessage(std::string sender_id, int socketFd, std::string receiver_id, std::string content, std::string type) {
-    Messenger messenger;
-    messenger.setSenderId(sender_id);
-    messenger.setReceiverId(receiver_id);
-    messenger.setContent(content);
-    messenger.setType(type);
-    std::time_t now = time(0);
-    std::tm* localTime = std::localtime(&now); 
+void MessageController::sendMessage(int socketFd , std::string msg) {
 
-    std::ostringstream oss;
-    oss << std::put_time(localTime, "%Y-%m-%d %H:%M:%S");
-    messenger.setCreatedAt(oss.str());
-
-    if(send(socketFd, messenger.toString().c_str(), messenger.toString().length(), 0) != -1){
+    if(send(socketFd, msg.c_str(), msg.length(), 0) != -1){
         std::cout << "Message sent!" << std::endl;
     } else {
         std::cout << "Failed to send message!" << std::endl;

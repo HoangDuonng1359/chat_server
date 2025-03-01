@@ -18,7 +18,7 @@ private:
 
 public:
     GroupChat(int id, std::shared_ptr<Client> admin, std::string name);
-    
+    GroupChat();
     void setId(int id);
     void setName(const std::string& name);
     void setAdmin(std::shared_ptr<Client> admin);

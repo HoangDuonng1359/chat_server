@@ -78,9 +78,8 @@ void ConnectionService::handleClient(std::string username) {
         buffer[len] = '\0';
         std::cout << buffer << std::endl;
 
-        
         if(messageService.sendMessage(buffer) == -1){
-            std::cout << "Error sending message" << std::endl;
+            std::cout << "Error sending message: " << std::endl;
         }
     }
 }

@@ -6,7 +6,7 @@ CXXFLAGS = -Wall -std=c++11 -I/model -I/controller -I/view -I../client/model
 SRC_DIR = .
 MODEL_DIR = model
 CONTROLLER_DIR = controller
-CLIENT_DIR = ../client/model
+
 
 SRC = $(SRC_DIR)/main.cpp \
       $(MODEL_DIR)/ConnectionService.cpp \
@@ -15,7 +15,7 @@ SRC = $(SRC_DIR)/main.cpp \
       $(MODEL_DIR)/Client.cpp \
       $(CONTROLLER_DIR)/ServiceManager.cpp \
       $(CONTROLLER_DIR)/ClientManager.cpp \
-      $(CLIENT_DIR)/Messenger.cpp
+      $(CONTROLLER_DIR)/GroupManager.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
